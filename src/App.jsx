@@ -7,38 +7,50 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import MainContainer from "./components/MainContainer";
 import WatchPage from "./components/WatchPage";
 
-const appRouter = createBrowserRouter([{ 
-  path: "/", 
-  element: <Body />,
-  children: [
-    {
-      path: "/",
-      element: <MainContainer />
-    },
-    {
-      path: "watch",
-      element: <WatchPage />
-    }
-  ]
- }]);
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <>
+        <div className="fixed top-0 left-0 w-full z-50 bg-white">
+          <Head />
+        </div>
+        <div className="pt-12">
+          <Body />
+        </div>
+      </>
+    ),
+    children: [
+      {
+        path: "/",
+        element: <MainContainer />,
+      },
+      {
+        path: "watch",
+        element: <WatchPage />,
+      },
+      {
+        path: "result",
+        element: <MainContainer />,
+      },
+    ],
+  },
+]);
 
 function App() {
   return (
     <Provider store={store}>
-      <div>
-        <Head />
-        <RouterProvider router={appRouter} />
-        {/*
-         * Head
-         * Body
-         *   Sidebar
-         *     Menu Items
-         *   Main Container
-         *     Buttons list
-         *     Video Container
-         *       Video Card
-         */}
-      </div>
+      <RouterProvider router={appRouter} />
+      {/*
+       * Head
+       * Body
+       *   Sidebar
+       *     Menu Items
+       *   Main Container
+       *     Buttons list
+       *     Video Container
+       *       Video Card
+       */}
     </Provider>
   );
 }

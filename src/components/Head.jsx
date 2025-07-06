@@ -3,17 +3,22 @@ import { toggleMenu } from "../utils/appSlice";
 import { FiSearch } from "react-icons/fi";
 import { FaBars } from "react-icons/fa6";
 import { FaUserCircle } from "react-icons/fa";
-import { useEffect, useState } from "react";
-import { YOUTUBE_SEARCH } from "../utils/constants";
+import { useEffect, useRef, useState } from "react";
+import { YOUTUBE_LOGO, YOUTUBE_SEARCH } from "../utils/constants";
 import { cacheResult } from "../utils/searchSlice";
+import { Link } from "react-router";
+import useOutsideClick from "../hooks/useOutsideClick";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const dispatch = useDispatch();
+  const wrapperRef = useRef(null);
 
   const searchCache = useSelector((store) => store.search);
+
+  useOutsideClick(wrapperRef, () => setShowSuggestions(false));
 
   useEffect(() => {
     // make an api call after each key press
@@ -56,14 +61,12 @@ const Head = () => {
         >
           <FaBars size={24} />
         </button>
-        <img
-          className="h-8 p-1 pl-2"
-          alt="youtube-logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png"
-        />
+        <Link to="/">
+          <img className="h-8 p-1 pl-2" alt="youtube-logo" src={YOUTUBE_LOGO} />
+        </Link>
       </div>
-      <div className="col-span-10 flex justify-center w-1/2">
-        <div className="relative w-full">
+      <div className="col-span-10 flex justify-center w-full">
+        <div className="relative w-1/2" ref={wrapperRef}>
           <input
             placeholder="Search"
             className="border border-gray-300 rounded-l-full w-full p-1 pl-4"
@@ -71,18 +74,22 @@ const Head = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setShowSuggestions(true)}
-            onBlur={() => setShowSuggestions(false)}
           />
           {showSuggestions && searchQuery && (
             <div className="absolute bg-white p-2 w-full rounded-lg shadow-lg border border-gray-100">
               <ul>
                 {suggestions.map((s) => (
                   <li
-                    className="p-2 pl-4 rounded-lg flex gap-4 items-center hover:bg-gray-200"
                     key={s.etag}
+                    className="p-2 pl-4 rounded-lg flex gap-4 items-center hover:bg-gray-200"
                   >
-                    <FiSearch color="gray" />
-                    <span className="text-sm">{s.snippet.title}</span>
+                    <Link
+                      to={`/result?v=${s.id.videoId}`}
+                      onClick={() => setShowSuggestions(false)}
+                    >
+                      <FiSearch color="gray" />
+                      <span className="text-sm">{s.snippet.title}</span>
+                    </Link>
                   </li>
                 ))}
               </ul>
