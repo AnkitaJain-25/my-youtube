@@ -3,13 +3,11 @@ import VideoCard from "./VideoCard";
 
 const VideoList = ({ videos }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
       {videos.map((video) => (
-        <div key={video.id} className="p-2 shadow-lg">
-          <Link to={`/watch?v=${video.id}`}>
-            <VideoCard info={video} />
-          </Link>
-        </div>
+        <Link to={`/watch?v=${video.id}`} key={video.id} className="block">
+          <VideoCard info={video} />
+        </Link>
       ))}
     </div>
   );

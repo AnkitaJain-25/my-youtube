@@ -2,6 +2,9 @@ const GOOGLE_API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 
 export const OFFSET_LIVE_CHAT = 25;
 
+export const YOUTUBE_THUMBNAIL = (id) =>
+  `https://i.ytimg.com/vi/${id}/hq720.jpg`;
+
 export const YOUTUBE_LOGO =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png";
 
@@ -15,3 +18,9 @@ export const YOUTUBE_SEARCH_RESULT = (videoId) =>
 
 export const YOUTUBE_EMBED = (videoId) =>
   `https://www.youtube.com/embed/${videoId}`;
+
+export const CHANNEL_DETAILS = (channelId) =>
+  `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${channelId}&key=${GOOGLE_API_KEY}`;
+
+export const CHANNEL_THUMBNAIL = (channelId) =>
+  `https://www.googleapis.com/youtube/v3/channels?part=snippet&fields=items%2Fsnippet%2Fthumbnails%2Fdefault&id=${channelId}&key=${GOOGLE_API_KEY}`;

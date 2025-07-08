@@ -10,40 +10,50 @@ const Sidebar = () => {
 
   if (!isMenuOpen) return null;
   return (
-    <div className="p-5 shadow-lg w-48">
+    <div className="fixed left-0 px-3 py-5 shadow-lg w-48 h-screen">
       <ul>
         <li>
           <Link to="/" className="flex">
-            <div className="flex items-center gap-2">
-              <IoMdHome />
-              <span>Home</span>
-            </div>
+            <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-200">
+              <div className="flex items-center gap-4">
+                <IoMdHome size={24} />
+                <span>Home</span>
+              </div>
+            </button>
           </Link>
         </li>
         <li>
-          <div className="flex items-center gap-2">
-            <SiYoutubeshorts />
-            <span>Shorts</span>
-          </div>
+          <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-200">
+            <div className="flex items-center gap-4">
+              <SiYoutubeshorts size={23} />
+              <span>Shorts</span>
+            </div>
+          </button>
         </li>
         <li>
-          <div className="flex items-center gap-2">
-            <FaVideo />
-            <span>Videos</span>
-          </div>
+          <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-200">
+            <div className="flex items-center gap-4">
+              <FaVideo size={23} />
+              <span>Videos</span>
+            </div>
+          </button>
         </li>
         <li>
-          <div className="flex items-center gap-2">
-            <MdLiveTv />
-            <span>Live</span>
-          </div>
+          <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-200">
+            <div className="flex items-center gap-4">
+              <MdLiveTv size={24} />
+              <span>Live</span>
+            </div>
+          </button>
         </li>
       </ul>
       <h1 className="font-bold pt-5">
-        <div className="flex items-center gap-2">
-          <MdSubscriptions />
-          <span>Subscriptions</span>
-        </div>
+        <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-200">
+          <div className="flex items-center gap-4">
+            <MdSubscriptions />
+            <span>Subscriptions</span>
+          </div>
+        </button>
       </h1>
       <ul>
         <li>Music</li>

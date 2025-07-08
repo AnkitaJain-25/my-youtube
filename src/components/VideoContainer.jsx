@@ -3,8 +3,6 @@ import { YOUTUBE_SEARCH_RESULT, YOUTUBE_VIDEOS_API } from "../utils/constants";
 import VideoList from "./VideoList";
 
 const VideoContainer = ({ params }) => {
-  console.log(params);
-
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {

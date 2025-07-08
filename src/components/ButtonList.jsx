@@ -38,29 +38,29 @@ const ButtonList = () => {
   };
 
   return (
-      <div className="flex items-center">
-        <button
-          onClick={() => scroll("left")}
-          className="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white"
-        >
-          <MdKeyboardArrowLeft size={20} />
-        </button>
-        <div className="overflow-hidden" ref={scrollRef}>
-          <div className="flex">
-            {list.map((name) => (
-              <div key={name}>
-                <Button name={name} />
-              </div>
-            ))}
-          </div>
+    <div className="flex items-center py-4">
+      <button
+        onClick={() => scroll("left")}
+        className="p-2 rounded-full hover:bg-black hover:text-white"
+      >
+        <MdKeyboardArrowLeft size={20} />
+      </button>
+      <div className="overflow-hidden" ref={scrollRef}>
+        <div className="flex">
+          {list.map((name) => (
+            <div key={name}>
+              <Button name={name} />
+            </div>
+          ))}
         </div>
-        <button
-          onClick={() => scroll("right")}
-          className="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white"
-        >
-          <MdKeyboardArrowRight size={20} />
-        </button>
       </div>
+      <button
+        onClick={() => scroll("right")}
+        className="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white"
+      >
+        <MdKeyboardArrowRight size={20} />
+      </button>
+    </div>
   );
 };
 
