@@ -1,26 +1,28 @@
 import { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_RESULT, YOUTUBE_VIDEOS_API } from "../utils/constants";
 import VideoList from "./VideoList";
+import ShimmerList from "./ShimmerList";
 
 const VideoContainer = ({ params }) => {
   const [videos, setVideos] = useState([]);
+  const isSearchView = !!params;
 
   useEffect(() => {
+    setVideos([]);
     getVideos();
   }, [params]);
 
   const getVideos = async () => {
-    let data;
-    if (!params) {
-      data = await fetch(YOUTUBE_VIDEOS_API);
-    } else {
-      data = await fetch(YOUTUBE_SEARCH_RESULT(params));
-    }
+    const apiUrl = params ? YOUTUBE_SEARCH_RESULT(params) : YOUTUBE_VIDEOS_API;
+    const data = await fetch(apiUrl);
     const json = await data.json();
     setVideos(json.items);
   };
 
-  return <VideoList videos={videos} />;
+  if (!videos.length) {
+    return <ShimmerList count={12} />;
+  }
+  return <VideoList videos={videos} isSearchView={isSearchView} />;
 };
 
 export default VideoContainer;
