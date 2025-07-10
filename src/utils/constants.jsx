@@ -8,7 +8,7 @@ export const YOUTUBE_THUMBNAIL = (id) =>
 export const YOUTUBE_LOGO =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png";
 
-export const YOUTUBE_VIDEOS_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=${GOOGLE_API_KEY}`;
+export const YOUTUBE_VIDEOS_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&regionCode=IN&key=${GOOGLE_API_KEY}`;
 
 export const YOUTUBE_SEARCH = (searchText) =>
   `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${searchText}&key=${GOOGLE_API_KEY}`;
@@ -24,3 +24,8 @@ export const CHANNEL_DETAILS = (channelId) =>
 
 export const CHANNEL_THUMBNAIL = (channelId) =>
   `https://www.googleapis.com/youtube/v3/channels?part=snippet&fields=items%2Fsnippet%2Fthumbnails%2Fdefault&id=${channelId}&key=${GOOGLE_API_KEY}`;
+
+export const YOUTUBE_VIDEO_CATEGORIES = `https://youtube.googleapis.com/youtube/v3/videoCategories?part=snippet&regionCode=IN&key=${GOOGLE_API_KEY}`;
+
+export const YOUTUBE_VIDEO_BY_CATEGORIES = (categoryId) =>
+  `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=5&regionCode=IN&videoCategoryId=${categoryId}&key=${GOOGLE_API_KEY}`;

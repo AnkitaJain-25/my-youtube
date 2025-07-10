@@ -5,7 +5,7 @@ import {
   YOUTUBE_THUMBNAIL,
 } from "../utils/constants";
 
-const VideoCard = ({ info, isSearchView }) => {
+const VideoCard = ({ info, isResultView }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [channelThumbnail, setChannelThumbnail] = useState(null);
   const { snippet, statistics, id } = info;
@@ -36,14 +36,14 @@ const VideoCard = ({ info, isSearchView }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={`pb-2 w-full ${
-        isSearchView
+        isResultView
           ? "flex flex-col md:flex-row gap-3 border-b border-gray-300 pb-4"
           : "flex flex-col"
       }`}
     >
       <div
         className={`relative ${
-          isSearchView ? "w-full md:w-1/3 flex-shrink-0" : "w-full"
+          isResultView ? "w-full md:w-1/3 flex-shrink-0" : "w-full"
         } aspect-video bg-black overflow-hidden transition-all duration-500 ease-in-out ${
           isHovered ? "rounded-none" : "rounded-lg"
         }`}
@@ -84,7 +84,7 @@ const VideoCard = ({ info, isSearchView }) => {
             <span>{channelTitle}</span>
             <span>{formatNumber(statistics.viewCount)} views</span>
           </div>
-          {isSearchView && <p className="line-clamp-1">{description}</p>}
+          {isResultView && <p className="line-clamp-1">{description}</p>}
         </div>
       </div>
     </div>
