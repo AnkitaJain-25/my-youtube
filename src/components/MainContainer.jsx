@@ -10,8 +10,7 @@ const MainContainer = () => {
       <ButtonList />
       <VideoContainer
         searchParams={params.get("v")}
-        categoryId={params.get("categoryid")}
-        categoryName={params.get("categoryname")}
+        categoryId={params.get("category")}
       />
     </div>
   );

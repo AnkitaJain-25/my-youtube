@@ -8,7 +8,7 @@ import VideoList from "./VideoList";
 import ShimmerList from "./ShimmerList";
 import ErrorPage from "./ErrorPage";
 
-const VideoContainer = ({ searchParams, categoryId, categoryName }) => {
+const VideoContainer = ({ searchParams, categoryId }) => {
   const [videos, setVideos] = useState([]);
   const [error, setError] = useState(false);
   const isResultView = !!(searchParams || categoryId);

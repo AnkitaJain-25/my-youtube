@@ -61,7 +61,10 @@ const VideoCard = ({ info, isResultView }) => {
               className={`absolute top-0 left-0 h-full w-full transition-opacity duration-700 ease-in-out ${
                 isHovered ? "opacity-100" : "pointer-events-none opacity-0"
               }`}
-              src={YOUTUBE_EMBED(id) + "?&autoplay=1&mute=1&controls=0"}
+              src={
+                YOUTUBE_EMBED(id) +
+                "?&autoplay=1&mute=1&controls=0&modestbranding=1&rel=0"
+              }
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"

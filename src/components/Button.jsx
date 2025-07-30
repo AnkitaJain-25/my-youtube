@@ -3,16 +3,12 @@ import { Link, useLocation } from "react-router";
 const Button = ({ name, categoryId }) => {
   const location = useLocation();
   const categoryParams = new URLSearchParams(location.search);
-  const currentName = categoryParams.get("categoryname");
+  const currentId = categoryParams.get("category");
 
   const isActive =
-    currentName === name || (!categoryParams.size && name === "All");
+    currentId === categoryId || (!categoryParams.size && !categoryId);
 
-  const to = categoryId
-    ? `/result?categoryid=${categoryId}&categoryname=${encodeURIComponent(
-        name,
-      )}`
-    : "/";
+  const to = categoryId ? `/result?category=${categoryId}` : "/";
 
   return (
     <Link to={to}>
