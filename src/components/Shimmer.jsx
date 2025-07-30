@@ -1,11 +1,11 @@
 const Shimmer = () => {
   return (
-    <div className="w-full flex flex-col animate-pulse">
-      <div className="bg-gray-300 rounded-lg aspect-video mb-2"></div>
-      <div className="h-4 bg-gray-300 rounded mb-1"></div>
-      <div className="h-4 bg-gray-300 rounded mb-1 w-2/3"></div>
+    <div className="flex w-full animate-pulse flex-col">
+      <div className="mb-2 aspect-video rounded-lg bg-gray-300"></div>
+      <div className="mb-1 h-4 rounded bg-gray-300"></div>
+      <div className="mb-1 h-4 w-2/3 rounded bg-gray-300"></div>
     </div>
-  )
-}
+  );
+};
 
-export default Shimmer
+export default Shimmer;

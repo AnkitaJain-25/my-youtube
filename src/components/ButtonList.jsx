@@ -32,7 +32,7 @@ const ButtonList = () => {
     <div className="flex items-center py-4">
       <button
         onClick={() => scroll("left")}
-        className="p-2 rounded-full hover:bg-black hover:text-white"
+        className="rounded-full p-2 hover:bg-black hover:text-white"
       >
         <MdKeyboardArrowLeft size={20} />
       </button>
@@ -48,7 +48,7 @@ const ButtonList = () => {
       </div>
       <button
         onClick={() => scroll("right")}
-        className="p-2 bg-gray-200 rounded-full hover:bg-black hover:text-white"
+        className="rounded-full bg-gray-200 p-2 hover:bg-black hover:text-white"
       >
         <MdKeyboardArrowRight size={20} />
       </button>

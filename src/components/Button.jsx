@@ -10,14 +10,14 @@ const Button = ({ name, categoryId }) => {
 
   const to = categoryId
     ? `/result?categoryid=${categoryId}&categoryname=${encodeURIComponent(
-        name
+        name,
       )}`
     : "/";
 
   return (
     <Link to={to}>
       <button
-        className={`px-3 py-1.5 m-2 rounded-lg text-nowrap font-medium text-sm ${
+        className={`m-2 rounded-lg px-3 py-1.5 text-sm font-medium text-nowrap ${
           isActive ? "bg-black text-white" : "bg-gray-200"
         }`}
       >

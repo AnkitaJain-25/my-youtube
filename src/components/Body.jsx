@@ -8,7 +8,7 @@ const Body = () => {
   return (
     <div className="flex">
       <Sidebar />
-      <div className={`flex-1 w-full ${isMenuOpen ? "pl-48" : "pl-0"}`}>
+      <div className={`w-full flex-1 ${isMenuOpen ? "pl-48" : "pl-0"}`}>
         <Outlet />
       </div>
     </div>

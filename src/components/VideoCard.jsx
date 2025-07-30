@@ -35,22 +35,22 @@ const VideoCard = ({ info, isResultView }) => {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`pb-2 w-full ${
+      className={`w-full pb-2 ${
         isResultView
-          ? "flex flex-col md:flex-row gap-3 border-b border-gray-300 pb-4"
+          ? "flex flex-col gap-3 border-b border-gray-300 pb-4 md:flex-row"
           : "flex flex-col"
       }`}
     >
       <div
         className={`relative ${
-          isResultView ? "w-full md:w-1/3 flex-shrink-0" : "w-full"
-        } aspect-video bg-black overflow-hidden transition-all duration-500 ease-in-out ${
+          isResultView ? "w-full flex-shrink-0 md:w-1/3" : "w-full"
+        } aspect-video overflow-hidden bg-black transition-all duration-500 ease-in-out ${
           isHovered ? "rounded-none" : "rounded-lg"
         }`}
       >
         <img
           alt="thumbnail"
-          className={`w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-700 ease-in-out ${
+          className={`absolute top-0 left-0 h-full w-full object-cover transition-opacity duration-700 ease-in-out ${
             isHovered ? "opacity-0" : "opacity-100"
           }`}
           src={YOUTUBE_THUMBNAIL(id)}
@@ -58,8 +58,8 @@ const VideoCard = ({ info, isResultView }) => {
         {isHovered && (
           <>
             <iframe
-              className={`absolute top-0 left-0 w-full h-full transition-opacity duration-700 ease-in-out ${
-                isHovered ? "opacity-100" : "opacity-0 pointer-events-none"
+              className={`absolute top-0 left-0 h-full w-full transition-opacity duration-700 ease-in-out ${
+                isHovered ? "opacity-100" : "pointer-events-none opacity-0"
               }`}
               src={YOUTUBE_EMBED(id) + "?&autoplay=1&mute=1&controls=0"}
               title="YouTube video player"
@@ -67,7 +67,7 @@ const VideoCard = ({ info, isResultView }) => {
               referrerPolicy="strict-origin-when-cross-origin"
             ></iframe>
             {/* Transparent overlay when hovered to redirect to the watch page */}
-            <div className="absolute top-0 left-0 w-full h-full z-10 cursor-pointer"></div>
+            <div className="absolute top-0 left-0 z-10 h-full w-full cursor-pointer"></div>
           </>
         )}
       </div>
@@ -79,8 +79,8 @@ const VideoCard = ({ info, isResultView }) => {
           src={channelThumbnail?.url}
         />
         <div className="leading-5">
-          <div className="text-[1rem] font-medium pb-2">{title}</div>
-          <div className="text-gray-700 text-[0.9rem] font-sans flex flex-col">
+          <div className="pb-2 text-[1rem] font-medium">{title}</div>
+          <div className="flex flex-col font-sans text-[0.9rem] text-gray-700">
             <span>{channelTitle}</span>
             <span>{formatNumber(statistics.viewCount)} views</span>
           </div>

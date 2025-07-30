@@ -15,11 +15,11 @@ const WatchPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col w-full">
-      <div className="px-5 flex">
+    <div className="flex w-full flex-col">
+      <div className="flex px-5">
         <div className="w-full">
           <iframe
-            className="w-full h-full"
+            className="h-full w-full"
             src={YOUTUBE_EMBED(searchParams.get("v"))}
             title="YouTube video player"
             frameBorder="0"

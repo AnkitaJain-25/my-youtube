@@ -16,7 +16,7 @@ const LiveChat = () => {
         addMessage({
           name: generateRandomName(),
           message: makeRandomMessages(30) + "🚀",
-        })
+        }),
       );
     }, 1500);
 
@@ -25,14 +25,14 @@ const LiveChat = () => {
 
   return (
     <>
-      <div className="w-full h-[500px] ml-2 p-2 border border-black bg-slate-100 rounded-lg overflow-y-scroll flex flex-col-reverse">
+      <div className="ml-2 flex h-[500px] w-full flex-col-reverse overflow-y-scroll rounded-lg border border-black bg-slate-100 p-2">
         {chatMessages.map((c, index) => (
           <ChatMessage key={index} name={c.name} message={c.message} />
         ))}
       </div>
 
       <form
-        className="w-full p-2 ml-2 rounded-lg border border-black"
+        className="ml-2 w-full rounded-lg border border-black p-2"
         onSubmit={(e) => {
           e.preventDefault();
           liveMessage &&
@@ -40,7 +40,7 @@ const LiveChat = () => {
               addMessage({
                 name: "Ankita",
                 message: liveMessage,
-              })
+              }),
             );
           setLiveMessage("");
         }}
@@ -53,7 +53,7 @@ const LiveChat = () => {
             setLiveMessage(e.target.value);
           }}
         />
-        <button className="px-2 mx-2 bg-green-100">Send</button>
+        <button className="mx-2 bg-green-100 px-2">Send</button>
       </form>
     </>
   );

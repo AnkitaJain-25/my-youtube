@@ -44,7 +44,7 @@ const Head = () => {
     dispatch(
       cacheResult({
         [searchQuery]: json.items,
-      })
+      }),
     );
   };
 
@@ -53,11 +53,11 @@ const Head = () => {
   };
 
   return (
-    <div className="grid grid-flow-col shadow-lg p-1.5 items-center">
-      <div className="flex col-span-1">
+    <div className="grid grid-flow-col items-center p-1.5 shadow-lg">
+      <div className="col-span-1 flex">
         <button
           onClick={() => toggleMenuHandler()}
-          className="py-1 px-4 cursor-pointer"
+          className="cursor-pointer px-4 py-1"
         >
           <FaBars size={24} />
         </button>
@@ -65,23 +65,23 @@ const Head = () => {
           <img className="h-8 p-1 pl-2" alt="youtube-logo" src={YOUTUBE_LOGO} />
         </Link>
       </div>
-      <div className="col-span-10 flex justify-center w-full">
+      <div className="col-span-10 flex w-full justify-center">
         <div className="relative w-1/2" ref={wrapperRef}>
           <input
             placeholder="Search"
-            className="border border-gray-300 rounded-l-full w-full p-1 pl-4"
+            className="w-full rounded-l-full border border-gray-300 p-1 pl-4"
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setShowSuggestions(true)}
           />
           {showSuggestions && searchQuery && (
-            <div className="absolute bg-white p-2 w-full rounded-lg shadow-lg border border-gray-100">
+            <div className="absolute w-full rounded-lg border border-gray-100 bg-white p-2 shadow-lg">
               <ul>
                 {suggestions.map((s) => (
                   <li
                     key={s.etag}
-                    className="p-2 pl-4 rounded-lg flex gap-4 items-center hover:bg-gray-200"
+                    className="flex items-center gap-4 rounded-lg p-2 pl-4 hover:bg-gray-200"
                   >
                     <Link
                       to={`/result?v=${s.id.videoId}`}
@@ -97,12 +97,12 @@ const Head = () => {
           )}
         </div>
 
-        <button className="border border-gray-300 p-2 rounded-r-full bg-gray-100 cursor-pointer">
+        <button className="cursor-pointer rounded-r-full border border-gray-300 bg-gray-100 p-2">
           <FiSearch />
         </button>
       </div>
       <div className="col-span-1 flex justify-end">
-        <button className="h-8 p-1 rounded-full">
+        <button className="h-8 rounded-full p-1">
           <FaUserCircle size={24} />
         </button>
       </div>

@@ -7,7 +7,7 @@ const VideoList = ({ videos, isResultView }) => {
       className={
         isResultView
           ? "flex flex-col"
-          : "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"
+          : "grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3"
       }
     >
       {videos.map((video) => (

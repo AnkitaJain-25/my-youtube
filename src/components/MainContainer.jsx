@@ -6,7 +6,7 @@ const MainContainer = () => {
   const [params] = useSearchParams();
 
   return (
-    <div className="px-4 w-full">
+    <div className="w-full px-4">
       <ButtonList />
       <VideoContainer
         searchParams={params.get("v")}

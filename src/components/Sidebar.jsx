@@ -10,11 +10,11 @@ const Sidebar = () => {
 
   if (!isMenuOpen) return null;
   return (
-    <div className="fixed left-0 px-3 py-5 shadow-lg w-48 h-screen">
+    <div className="fixed left-0 h-screen w-48 px-3 py-5 shadow-lg">
       <ul>
         <li>
           <Link to="/" className="flex">
-            <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-200">
+            <button className="w-full rounded-lg px-3 py-2 text-left hover:bg-gray-200">
               <div className="flex items-center gap-4">
                 <IoMdHome size={24} />
                 <span>Home</span>
@@ -23,7 +23,7 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-200">
+          <button className="w-full rounded-lg px-3 py-2 text-left hover:bg-gray-200">
             <div className="flex items-center gap-4">
               <SiYoutubeshorts size={23} />
               <span>Shorts</span>
@@ -31,7 +31,7 @@ const Sidebar = () => {
           </button>
         </li>
         <li>
-          <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-200">
+          <button className="w-full rounded-lg px-3 py-2 text-left hover:bg-gray-200">
             <div className="flex items-center gap-4">
               <FaVideo size={23} />
               <span>Videos</span>
@@ -39,7 +39,7 @@ const Sidebar = () => {
           </button>
         </li>
         <li>
-          <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-200">
+          <button className="w-full rounded-lg px-3 py-2 text-left hover:bg-gray-200">
             <div className="flex items-center gap-4">
               <MdLiveTv size={24} />
               <span>Live</span>
@@ -47,8 +47,8 @@ const Sidebar = () => {
           </button>
         </li>
       </ul>
-      <h1 className="font-bold pt-5">
-        <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-200">
+      <h1 className="pt-5 font-bold">
+        <button className="w-full rounded-lg px-3 py-2 text-left hover:bg-gray-200">
           <div className="flex items-center gap-4">
             <MdSubscriptions />
             <span>Subscriptions</span>
@@ -61,7 +61,7 @@ const Sidebar = () => {
         <li>Gaming</li>
         <li>Movies</li>
       </ul>
-      <h1 className="font-bold pt-5">Watch Later</h1>
+      <h1 className="pt-5 font-bold">Watch Later</h1>
       <ul>
         <li>Music</li>
         <li>Sports</li>
